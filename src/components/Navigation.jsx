@@ -46,7 +46,7 @@ export default function Navigation() {
                     </NavigationMenu>
                 </div>
                 <div>
-                    <Button className={"cursor-pointer"}>Login</Button>
+                    <Button><Link href={"/login"} className={"cursor-pointer"}>Login</Link></Button>
                 </div>
             </div>
         </div>
