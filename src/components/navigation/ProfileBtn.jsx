@@ -15,8 +15,10 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function ProfileBtn({ session }) {
+    const router = useRouter()
     return (
         <DropdownMenu>
             {/* Tooltip wraps around DropdownMenuTrigger (which wraps a div) */}
@@ -39,12 +41,10 @@ export default function ProfileBtn({ session }) {
             <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => router.push("/profile")} className={"cursor-pointer"}>Profile</DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => signOut({ callbackUrl: "/login" })}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-red-600 font-semibold"
                 >
                     Sign Out
                 </DropdownMenuItem>

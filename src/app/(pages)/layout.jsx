@@ -4,7 +4,7 @@ import React from 'react'
 export default function PageLayout({ children }) {
     return (
         <div>
-            <div>
+            <div className='sticky top-0 z-50'>
                 <Navigation />
             </div>
             <div>
