@@ -10,4 +10,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       from: "book-college <onboarding@resend.dev>",
     }),
   ],
+  pages: {
+    error: "/login",
+    verifyRequest: "/verify-email",
+    signIn: "/login",
+  },
 });

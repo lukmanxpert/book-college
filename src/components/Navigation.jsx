@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 import {
     NavigationMenu,
@@ -12,9 +12,8 @@ import { usePathname } from 'next/navigation'
 
 export default function Navigation() {
     const pathname = usePathname()
-    console.log('pathname :>> ', pathname);
     return (
-        <div className='flex justify-between p-2'>
+        <div className='flex justify-between p-2 shadow'>
             <div>
                 <h1 className='text-xl font-bold'>Book College</h1>
             </div>
@@ -23,23 +22,23 @@ export default function Navigation() {
                     <NavigationMenu>
                         <NavigationMenuList className={"font-semibold"}>
                             <NavigationMenuItem>
-                                <NavigationMenuLink className={`${pathname === "/" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
-                                    <Link href="/">Home</Link>
+                                <NavigationMenuLink href={"/"} className={`${pathname === "/" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
+                                    Home
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink className={`${pathname === "/college" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
-                                    <Link href="/college">College</Link>
+                                <NavigationMenuLink href={"/college"} className={`${pathname === "/college" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
+                                    College
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink className={`${pathname === "/admission" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
-                                    <Link href="/admission">Admission</Link>
+                                <NavigationMenuLink href={"/admission"} className={`${pathname === "/admission" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
+                                    Admission
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink className={`${pathname === "/my-college" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
-                                    <Link href="/my-college">My College</Link>
+                                <NavigationMenuLink href={"/my-college"} className={`${pathname === "/my-college" && "bg-neutral-950 text-white"} hover:bg-neutral-950 hover:text-white`}>
+                                    My College
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                         </NavigationMenuList>

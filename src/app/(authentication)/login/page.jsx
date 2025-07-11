@@ -36,7 +36,7 @@ export default function LoginPage() {
               name="email"
             ></Input>
           </div>
-          <Button className="w-full">Login</Button>
+          <Button className="w-full cursor-pointer">Login</Button>
         </form>
       </CardContent>
     </Card>
