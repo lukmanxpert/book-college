@@ -20,7 +20,9 @@ export default async function Navigation() {
                 <div>
                     {
                         session?.user?.email ? (
-                            <ProfileBtn session={session} />
+                            <div>
+                                <ProfileBtn session={session} />
+                            </div>
                         ) : (
                             <Button><Link href={"/login"} className={"cursor-pointer"}>Login</Link></Button>
                         )

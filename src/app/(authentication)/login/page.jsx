@@ -1,5 +1,4 @@
 import { Public } from "@/components/CheckAuth";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signIn } from "@/lib/auth";
+import LoginBtn from "./LoginBtn";
 
 export default function LoginPage() {
   return (
@@ -37,7 +37,7 @@ export default function LoginPage() {
               name="email"
             ></Input>
           </div>
-          <Button className="w-full cursor-pointer">Login</Button>
+          <LoginBtn />
         </form>
       </CardContent>
       <Public />
