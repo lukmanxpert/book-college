@@ -1,4 +1,4 @@
-import Navigation from '@/components/Navigation'
+import Navigation from '@/components/navigation/Navigation'
 import React from 'react'
 
 export default function PageLayout({ children }) {
