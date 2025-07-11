@@ -1,3 +1,4 @@
+import { Public } from "@/components/CheckAuth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -39,6 +40,7 @@ export default function LoginPage() {
           <Button className="w-full cursor-pointer">Login</Button>
         </form>
       </CardContent>
+      <Public />
     </Card>
   );
 }
