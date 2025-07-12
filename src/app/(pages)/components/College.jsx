@@ -1,5 +1,6 @@
 import { headers } from 'next/headers';
 import CollegeCardHome from './CollegeCardHome';
+import Search from './Search';
 export default async function College() {
     const host = headers().get('host');
     const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
@@ -9,7 +10,10 @@ export default async function College() {
     const colleges = result?.data || [];
     return (
         <div>
-            <h1 className='text-3xl mb-4 font-semibold'>All Colleges: {colleges.length}</h1>
+            <div className='flex justify-between gap-4'>
+                <h1 className='text-xl md:text-3xl mb-4 font-semibold'>All Colleges: {colleges.length}</h1>
+                <Search />
+            </div>
             {colleges.length === 0 ? (
                 <p>No college data found.</p>
             ) : (

@@ -22,7 +22,7 @@ export default async function CollegeDetails({ params }) {
                 <Image
                     height={300}
                     width={300}
-                    className='w-full h-48 sm:h-64 md:w-96 md:h-64 lg:w-[400px] lg:h-[250px] object-cover rounded'
+                    className='w-full h-48 sm:h-64 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] object-cover rounded'
                     src={college.image}
                     alt={college.name}
                 />
