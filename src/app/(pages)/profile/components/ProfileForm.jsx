@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react'
-import SaveBtn from './SaveBtn';
 import {
     Card,
     CardContent,
@@ -10,8 +9,13 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import axios from 'axios';
+import { toast } from 'sonner';
+// import { useFormStatus } from 'react-dom';
+import { Button } from '@/components/ui/button';
 
 export default function ProfileForm({ user }) {
+    // const { pending } = useFormStatus()
     const { email, name, address, university, image } = user;
     const [data, setData] = useState({
         name: name || "",
@@ -20,16 +24,28 @@ export default function ProfileForm({ user }) {
         university: university || "",
         image: image || ""
     })
+    const [pending, setPending] = useState(false);
+
     const handleChange = (event) => {
         const { name, value } = event.target
         setData(prev => ({ ...prev, [name]: value }))
     }
-    const handleSubmit = (event) => [
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        
-    ]
+        setPending(true);
+        try {
+            const responseData = await axios.put("/api/users", data)
+            if (responseData.data.success) {
+                toast(responseData.data.message)
+            }
+        } catch (error) {
+            console.log('error :>> ', error);
+        } finally {
+            setPending(false);
+        }
+    }
     return (
-        <Card className="max-w-sm min-w-xs lg:min-w-sm">
+        <Card className="max-w-sm min-w-xs lg:min-w-lg">
             <CardHeader>
                 <CardTitle className="text-xl w-full">Profile Information</CardTitle>
                 <CardDescription>
@@ -104,7 +120,7 @@ export default function ProfileForm({ user }) {
                             onChange={handleChange}
                         ></Input>
                     </div>
-                    <SaveBtn />
+                    <Button variant="outline" className="w-full cursor-pointer">{pending ? "Saving..." : "Save"}</Button>
                 </form>
             </CardContent>
         </Card>
