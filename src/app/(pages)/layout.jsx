@@ -1,3 +1,4 @@
+import Footer from '@/components/footer/Footer'
 import Navigation from '@/components/navigation/Navigation'
 import React from 'react'
 
@@ -9,6 +10,9 @@ export default function PageLayout({ children }) {
             </div>
             <div className='p-4'>
                 {children}
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     )
