@@ -7,7 +7,7 @@ export default function PageLayout({ children }) {
             <div className='sticky top-0 z-50'>
                 <Navigation />
             </div>
-            <div>
+            <div className='p-4'>
                 {children}
             </div>
         </div>

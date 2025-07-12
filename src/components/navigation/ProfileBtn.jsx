@@ -19,7 +19,6 @@ import { useRouter } from "next/navigation";
 
 export default function ProfileBtn({ session }) {
     const router = useRouter()
-    console.log("user image", session.user.image);
     return (
         <DropdownMenu>
             {/* Tooltip wraps around DropdownMenuTrigger (which wraps a div) */}

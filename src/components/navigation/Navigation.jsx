@@ -7,9 +7,8 @@ import ProfileBtn from './ProfileBtn'
 
 export default async function Navigation() {
     const session = await auth()
-    console.log('session :>> ', session);
     return (
-        <div className='flex justify-between h-16 items-center p-2 shadow z-50 bg-white'>
+        <div className='flex justify-between h-16 items-center py-2 px-4 shadow z-50 bg-white'>
             <div>
                 <h1 className='text-xl font-bold'>Book College</h1>
             </div>
