@@ -12,11 +12,11 @@ export default async function Navigation() {
             <div>
                 <h1 className='text-xl font-bold'>Book College</h1>
             </div>
-            <div className='w-1/3 flex justify-between text-center gap-4'>
-                <div>
+            <div className='w-1/3 flex justify-end lg:justify-between text-center gap-4'>
+                <div className='hidden lg:block'>
                     <NavigationMenuComponent />
                 </div>
-                <div>
+                <div className=''>
                     {
                         session?.user?.email ? (
                             <div>

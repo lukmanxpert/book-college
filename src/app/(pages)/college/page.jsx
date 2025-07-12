@@ -7,8 +7,6 @@ export default async function CollegePage() {
   const res = await fetch(`${baseUrl}/api/college`, { cache: 'no-store' });
   const result = await res.json();
   const colleges = result?.data || [];
-
-
   return (
     <div>
       <h1 className='text-xl font-semibold'>All Colleges: {colleges.length}</h1>

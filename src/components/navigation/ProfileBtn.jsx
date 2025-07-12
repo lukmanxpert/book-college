@@ -42,6 +42,13 @@ export default function ProfileBtn({ session }) {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => router.push("/profile")} className={"cursor-pointer"}>Profile</DropdownMenuItem>
+                <div className="lg:hidden">
+                    <DropdownMenuItem className={"cursor-pointer"} onClick={() => router.push("/")}>Home</DropdownMenuItem>
+                    <DropdownMenuItem className={"cursor-pointer"} onClick={() => router.push("/college")}>College</DropdownMenuItem>
+                    <DropdownMenuItem className={"cursor-pointer"} onClick={() => router.push("/admission")}>Admission</DropdownMenuItem>
+                    <DropdownMenuItem className={"cursor-pointer"} onClick={() => router.push("/my-college")}>My College</DropdownMenuItem>
+
+                </div>
                 <DropdownMenuItem
                     onClick={() => signOut({ callbackUrl: "/login" })}
                     className="cursor-pointer text-red-600 font-semibold"
