@@ -19,9 +19,18 @@ export default function CollegeCardHome({ college }) {
                 <CardTitle className={"text-xl"}>{college.name}</CardTitle>
             </CardHeader>
             <CardContent>
-                <p>College Rating: {college.rating}</p>
                 <p>Admission Date: {college.admissionDates}</p>
-                <p>Number of Research: {college.numberOfResearch}</p>
+                <p className='text-lg font-bold'>Events: {college.events.map((e, idx) => {
+                    return (
+                        <li key={idx} className='text-base font-medium'>{e}</li>
+                    )
+                })}</p>
+                <p className='font-bold'>Research History: <span className='font-normal'>{college.researchHistory}</span></p>
+                <p className='font-bold'>Sport's: {college.sports.map((s, idx) => {
+                    return (
+                        <li key={idx} className='font-medium'>{s}</li>
+                    )
+                })}</p>
             </CardContent>
             <CardFooter>
                 <DetailsBtn id={college._id} />

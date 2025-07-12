@@ -9,7 +9,7 @@ export default async function College() {
     const colleges = result?.data || [];
     return (
         <div>
-            <h1 className='text-xl font-semibold'>All Colleges: {colleges.length}</h1>
+            <h1 className='text-3xl mb-4 font-semibold'>All Colleges: {colleges.length}</h1>
             {colleges.length === 0 ? (
                 <p>No college data found.</p>
             ) : (
