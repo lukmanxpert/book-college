@@ -1,6 +1,7 @@
 import React from 'react'
 import { headers } from 'next/headers';
 import Image from 'next/image';
+import { Private } from '@/components/CheckAuth';
 
 export default async function CollegeDetails({ params }) {
     const { id } = await params
@@ -13,6 +14,7 @@ export default async function CollegeDetails({ params }) {
     console.log('college :>> ', college);
     return (
         <section className='flex flex-col gap-4'>
+            <Private />
             <div>
                 <h1 className='text-2xl font-bold'>{college.name}</h1>
             </div>
