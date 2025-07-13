@@ -24,6 +24,7 @@ export default function ProfileForm({ user }) {
         university: university || "",
         image: image || ""
     })
+    
     const [pending, setPending] = useState(false);
 
     const handleChange = (event) => {
