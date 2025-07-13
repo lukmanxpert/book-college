@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
     university: { type: String, required: true, default: null },
     address: { type: String, required: true, default: null },
     image: { type: String, required: true, default: null },
+    admittedCollege: { type: Object, default: null },
   },
   {
     timestamps: true,

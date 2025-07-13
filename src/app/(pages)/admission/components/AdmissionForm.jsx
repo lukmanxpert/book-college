@@ -40,7 +40,7 @@ export default function AdmissionForm({ colleges, user }) {
         email: email || "",
         address: address || "",
         image: image || "",
-        college: "",
+        collegeId: "",
         subject: "",
         phone: "",
         dob: null,
@@ -61,7 +61,7 @@ export default function AdmissionForm({ colleges, user }) {
 
         let hasError = false;
 
-        if (!data.college) {
+        if (!data.collegeId) {
             toast("Please select a college.");
             hasError = true;
         }
@@ -92,6 +92,8 @@ export default function AdmissionForm({ colleges, user }) {
 
     const subjectOptions = ["CSE", "EEE", "BBA", "MBA", "English", "Law", "Architecture"];
 
+    console.log('data :>> ', data);
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-50">
             <Card className="w-full max-w-lg">
@@ -107,9 +109,9 @@ export default function AdmissionForm({ colleges, user }) {
                         <div className="grid gap-2">
                             <Label htmlFor="college">Select College <span className="text-red-500">*</span></Label>
                             <Select
-                                value={data.college}
+                                value={data.collegeId}
                                 onValueChange={(value) =>
-                                    setData((prev) => ({ ...prev, college: value }))
+                                    setData((prev) => ({ ...prev, collegeId: value }))
                                 }
                                 required
                             >
@@ -118,7 +120,7 @@ export default function AdmissionForm({ colleges, user }) {
                                 </SelectTrigger>
                                 <SelectContent>
                                     {colleges.map((college, idx) => (
-                                        <SelectItem key={idx} value={college.name}>
+                                        <SelectItem key={idx} value={college._id}>
                                             {college.name}
                                         </SelectItem>
                                     ))}
