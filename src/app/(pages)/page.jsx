@@ -1,10 +1,10 @@
-import College from "./components/College";
+import CollegeSection from "./components/CollegeSection";
 
 export default function Home() {
   return (
     <div className="min-h-dvh">
       <div>
-        <College />
+        <CollegeSection />
       </div>
     </div>
   );
