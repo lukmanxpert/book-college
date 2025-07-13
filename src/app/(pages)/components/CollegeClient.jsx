@@ -14,11 +14,9 @@ export default function CollegeClient({ data }) {
     }
     return (
         <div>
-            <div className='flex justify-between gap-4'>
-                <h1 className='text-xl md:text-3xl mb-4 font-semibold'>All Colleges: {colleges.length}</h1>
-                <div>
-                    <Input name="search" onChange={handleChange} placeholder="Search college here" className={"w-36 md:min-w-60 lg:min-w-72"} />
-                </div>
+            <div className='flex items-center justify-between gap-4 w-full mb-4'>
+                <h1 className='text-xl md:text-3xl font-semibold'>All Colleges: {colleges.length}</h1>
+                <Input name="search" onChange={handleChange} placeholder="Search college here" className={"w-48 md:min-w-60 lg:min-w-72"} />
             </div>
             {colleges.length === 0 ? (
                 <p>No college data found.</p>
