@@ -10,7 +10,7 @@ export default async function Navigation() {
     return (
         <div className='flex justify-between h-16 items-center py-2 px-4 shadow z-50 bg-white'>
             <div>
-                <h1 className='text-xl font-bold'>Book College</h1>
+                <Link href={"/"} className='text-xl font-bold'>Book College</Link>
             </div>
             <div className='w-1/3 flex justify-end lg:justify-between text-center gap-4'>
                 <div className='hidden lg:block'>
