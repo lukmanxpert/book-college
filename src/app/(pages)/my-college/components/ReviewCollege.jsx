@@ -24,7 +24,7 @@ export default function ReviewCollege() {
         <div className='flex gap-2'>
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-col gap-2'>
-                    <Label className={"text-lg font-semibold"}>Leave a Review: </Label>
+                    <Label className={"text-lg font-bold"}>Leave a Review: </Label>
                     <Input name="review" className={"w-64"} placeholder="Leave a review of your college" />
                     <Button variant={"outline"} className={"cursor-pointer"}>{pending ? "Submitting..." : "Submit"}</Button>
                 </div>

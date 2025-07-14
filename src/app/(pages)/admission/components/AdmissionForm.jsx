@@ -63,17 +63,17 @@ export default function AdmissionForm({ colleges, user }) {
             let hasError = false;
 
             if (!data.collegeId) {
-                toast("Please select a college.");
+                toast.info("Please select a college.");
                 hasError = true;
             }
 
             if (!data.subject) {
-                toast("Please select a subject.");
+                toast.info("Please select a subject.");
                 hasError = true;
             }
 
             if (!data.dob) {
-                toast("Please select your date of birth.");
+                toast.info("Please select your date of birth.");
                 hasError = true;
             }
 
@@ -82,10 +82,10 @@ export default function AdmissionForm({ colleges, user }) {
             const responseData = await axios.post("/api/admission", data)
             console.log('responseData :>> ', responseData);
             if (responseData.data.error) {
-                return toast(responseData.data.message)
+                return toast.error(responseData.data.message)
             }
             if (responseData.data.success) {
-                toast(responseData.data.message)
+                toast.success(responseData.data.message)
                 setData({
                     name: name || "",
                     email: email || "",
