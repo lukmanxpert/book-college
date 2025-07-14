@@ -30,6 +30,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
+import axios from "axios";
 
 export default function AdmissionForm({ colleges, user }) {
     const { email, name, address, image } = user;
@@ -58,35 +59,53 @@ export default function AdmissionForm({ colleges, user }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        try {
+            let hasError = false;
 
-        let hasError = false;
+            if (!data.collegeId) {
+                toast("Please select a college.");
+                hasError = true;
+            }
 
-        if (!data.collegeId) {
-            toast("Please select a college.");
-            hasError = true;
+            if (!data.subject) {
+                toast("Please select a subject.");
+                hasError = true;
+            }
+
+            if (!data.dob) {
+                toast("Please select your date of birth.");
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            const responseData = await axios.post("/api/admission", data)
+            console.log('responseData :>> ', responseData);
+            if (responseData.data.error) {
+                return toast(responseData.data.message)
+            }
+            if (responseData.data.success) {
+                toast(responseData.data.message)
+                setData({
+                    name: name || "",
+                    email: email || "",
+                    address: address || "",
+                    image: image || "",
+                    collegeId: "",
+                    subject: "",
+                    phone: "",
+                    dob: null,
+                })
+                // Format date before submit if needed
+                const submissionData = {
+                    ...data,
+                    dob: data.dob ? format(data.dob, "yyyy-MM-dd") : null,
+                };
+                console.log("Form submitted with:", submissionData);
+            }
+        } catch (error) {
+            console.log('error :>> ', error);
         }
-
-        if (!data.subject) {
-            toast("Please select a subject.");
-            hasError = true;
-        }
-
-        if (!data.dob) {
-            toast("Please select your date of birth.");
-            hasError = true;
-        }
-
-        if (hasError) return;
-
-        // Format date before submit if needed
-        const submissionData = {
-            ...data,
-            dob: data.dob ? format(data.dob, "yyyy-MM-dd") : null,
-        };
-
-        console.log("Form submitted with:", submissionData);
-
-        // Submit logic here (e.g. API call)
     };
 
 
@@ -229,6 +248,7 @@ export default function AdmissionForm({ colleges, user }) {
                                     <Calendar
                                         mode="single"
                                         selected={data.dob}
+                                        captionLayout="dropdown"
                                         onSelect={(date) => {
                                             if (date) {
                                                 setData((prev) => ({ ...prev, dob: date }));

@@ -4,7 +4,7 @@ import AdmissionForm from './components/AdmissionForm';
 import { auth } from '@/lib/auth';
 
 export default async function AdmissionPage() {
-  const host = headers().get('host');
+  const host = await headers().get('host');
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const baseUrl = `${protocol}://${host}`;
   const res = await fetch(`${baseUrl}/api/college`, { cache: 'no-store' });

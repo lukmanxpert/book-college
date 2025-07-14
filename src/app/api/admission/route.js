@@ -13,7 +13,17 @@ export const POST = async (req) => {
         success: false,
       });
     }
-    if (session.user.email === payload.email) {
+    const dbUser = await userModel.findOne({ email: session.user.email });
+    const isExistingAdmitCollege =
+      (await dbUser.admittedCollege?.email) === session.user.email;
+    if (isExistingAdmitCollege) {
+      return NextResponse.json({
+        message: "Already admitted in a college.",
+        error: true,
+        success: false,
+      });
+    }
+    if (session.user.email !== payload.email) {
       return NextResponse.json({
         message: "Unauthorize access",
         error: true,
