@@ -5,7 +5,7 @@ import { Private } from '@/components/CheckAuth';
 
 export default async function CollegeDetails({ params }) {
     const { id } = await params
-    const host = headers().get('host');
+    const host = await headers().get('host');
     const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
     const baseUrl = `${protocol}://${host}`;
     const res = await fetch(`${baseUrl}/api/college/${id}`, { cache: 'no-store' });
@@ -42,22 +42,23 @@ export default async function CollegeDetails({ params }) {
                 <p className='font-bold'>Rating: <span className='font-medium'>{college.rating}</span></p>
             </div>
             <div>
-                <h1 className='text-lg font-bold mb-2'>Graduate Gallery:</h1>
-                <div className='grid grid-cols-2 gap-2'>
-                    {
-                        college.graduateGallery.map((image, idx) => {
-                            return (
+                <div className="px-4 sm:px-0">
+                    <h1 className="text-lg font-bold mb-4">Graduate Gallery:</h1>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {college.graduateGallery.map((image, idx) => (
+                            <div
+                                key={idx}
+                                className="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden rounded shadow"
+                            >
                                 <Image
-                                    key={idx}
                                     src={image}
-                                    width={300}
-                                    height={300}
-                                    className='w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover rounded'
                                     alt={`Graduate ${idx + 1}`}
+                                    fill
+                                    className="object-cover"
                                 />
-                            )
-                        })
-                    }
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
