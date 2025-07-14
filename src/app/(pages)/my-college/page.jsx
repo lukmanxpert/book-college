@@ -5,6 +5,7 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
+import ReviewCollege from './components/ReviewCollege';
 
 export default async function MyCollege() {
   const session = await auth()
@@ -34,7 +35,6 @@ export default async function MyCollege() {
                 src={college.image}
                 alt={college.name}
               />
-              <p className='font-bold text-lg'>Admission Date: <span className='font-medium'>{college.admissionDates}</span></p>
               <p className='text-lg font-bold'>Events: {college.events.map((e, idx) => {
                 return (
                   <li key={idx} className='text-base font-medium'>{e}</li>
@@ -68,6 +68,9 @@ export default async function MyCollege() {
                   ))}
                 </div>
               </div>
+            </div>
+            <div>
+              <ReviewCollege />
             </div>
           </section>
         ) : (
