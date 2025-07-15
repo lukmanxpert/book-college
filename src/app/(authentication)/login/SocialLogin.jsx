@@ -7,9 +7,9 @@ export default function SocialLogin() {
         <form action={async () => {
             "use server"
             await signIn("google")
-        }}>
-            <button type='submit'>
-                <FcGoogle />
+        }} className='text-center mt-3'>
+            <button className='text-center cursor-pointer hover:scale-125 transition' type='submit'>
+                <FcGoogle size={25} />
             </button>
         </form>
     )

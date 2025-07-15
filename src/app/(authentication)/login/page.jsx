@@ -6,11 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { signIn } from "@/lib/auth";
-import LoginBtn from "./LoginBtn";
+
 import SocialLogin from "./SocialLogin";
+import LoginForm from "./LoginForm";
 
 export default function LoginPage() {
   return (
@@ -22,28 +20,13 @@ export default function LoginPage() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form
-          action={async (formData) => {
-            "use server";
-            await signIn("resend", formData);
-          }}
-          className="grid gap-6"
-        >
-          <div className="grid gap-2">
-            <Label>Email</Label>
-            <Input
-              placeholder="hello@example.com"
-              required
-              type="email"
-              name="email"
-            ></Input>
-          </div>
-          <LoginBtn />
+        <LoginForm />
+        <div className="mt-4">
           <p className="text-center">
             Or Login With
           </p>
-        </form>
-        <SocialLogin />
+          <SocialLogin />
+        </div>
       </CardContent>
       <Public />
     </Card>
