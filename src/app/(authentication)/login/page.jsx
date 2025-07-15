@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signIn } from "@/lib/auth";
 import LoginBtn from "./LoginBtn";
+import SocialLogin from "./SocialLogin";
 
 export default function LoginPage() {
   return (
@@ -38,7 +39,11 @@ export default function LoginPage() {
             ></Input>
           </div>
           <LoginBtn />
+          <p className="text-center">
+            Or Login With
+          </p>
         </form>
+        <SocialLogin />
       </CardContent>
       <Public />
     </Card>

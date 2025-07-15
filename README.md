@@ -48,10 +48,10 @@ A fully functional MERN stack web application where users can explore colleges, 
 
 
 ---
-
+<!-- 
 ## 📸 Screenshots
 
-*(Include relevant screenshots here if possible, like home page, college card, admission form, review section, etc.)*
+*(Include relevant screenshots here if possible, like home page, college card, admission form, review section, etc.)* -->
 
 ---
 
